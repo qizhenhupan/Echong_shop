@@ -1,0 +1,23 @@
+@import './mixins.styl'
+
+.home-footer
+  position fixed
+  height 55px
+  background $gray
+  bottom 0
+  left 0;
+  right 0;
+  display flex
+  >.footer-item
+    flex 1
+    display flex
+    flex-flow column
+    justify-content center
+    align-items center
+    color $orange
+    .iconfont
+      font-size 30px
+    .text
+      font-size 16px;
+  .footer-item.current
+    color $green
