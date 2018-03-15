@@ -1,9 +1,10 @@
 @import './mixins.styl'
 
 .home-footer
+  z-index 100
   position fixed
   height 55px
-  background $gray
+  background #eee
   bottom 0
   left 0;
   right 0;
@@ -14,10 +15,10 @@
     flex-flow column
     justify-content center
     align-items center
-    color $orange
+    color #aaa
     .iconfont
-      font-size 30px
+      font-size 25px
     .text
-      font-size 16px;
+      font-size 12px;
   .footer-item.current
     color $green

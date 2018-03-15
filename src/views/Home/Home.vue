@@ -7,6 +7,7 @@
             <span>狗狗</span>
             &#124;
             <span>重庆</span>
+            <i class="iconfont icon-sanjiao"></i>
           </div>
           <div class="search-box">
             <input type="text" placeholder="搜索商品和品牌">
@@ -17,11 +18,23 @@
           </div>
         </div>
         <div class="home-tabs" ref="tabs" @click="switchTab">
-          <div class="tab-item"><span class="text current">首页</span></div>
-          <div class="tab-item"><span class="text">狗狗主粮</span></div>
-          <div class="tab-item"><span class="text">服饰城</span></div>
-          <div class="tab-item"><span class="text">医疗保障</span></div>
-          <div class="tab-item"><span class="text">零食玩具</span></div>
+          <div class="tab-wrapper swiper-wrapper">
+            <div class="tab-item swiper-slide "><span class="text current">首页</span></div>
+            <div class="tab-item swiper-slide"><span class="text">狗狗主粮</span></div>
+            <div class="tab-item swiper-slide"><span class="text">服饰城</span></div>
+            <div class="tab-item swiper-slide"><span class="text">医疗保障</span></div>
+            <div class="tab-item swiper-slide"><span class="text">零食玩具</span></div>
+            <div class="tab-item swiper-slide"><span class="text">首页</span></div>
+            <div class="tab-item swiper-slide"><span class="text">狗狗主粮</span></div>
+            <div class="tab-item swiper-slide"><span class="text">服饰城</span></div>
+            <div class="tab-item swiper-slide"><span class="text">医疗保障</span></div>
+            <div class="tab-item swiper-slide"><span class="text">零食玩具</span></div>
+            <div class="tab-item swiper-slide"><span class="text">首页</span></div>
+            <div class="tab-item swiper-slide"><span class="text">狗狗主粮</span></div>
+            <div class="tab-item swiper-slide"><span class="text">服饰城</span></div>
+            <div class="tab-item swiper-slide"><span class="text">医疗保障</span></div>
+            <div class="tab-item swiper-slide"><span class="text">零食玩具</span></div>
+          </div>
         </div>
       </header>
       <div class="adv-box"></div>
@@ -239,6 +252,7 @@
 <script>
   import 'swiper/dist/css/swiper.min.css'
   import Swiper from 'swiper'
+  import BScroll from 'better-scroll'
     export default {
       name: "home",
       data(){
@@ -268,6 +282,10 @@
           },
           autoplay:true,
         });
+        new Swiper('.home-tabs',{
+          slidesPerView:5,
+          spaceBetween:0
+        })
       },
       methods:{
         switchTab(e){
@@ -279,7 +297,7 @@
           [].forEach.call(tabs,(tab)=>{
             tab.classList.remove('current')
           })
-          ;target.classList.add('current')
+          target.classList.add('current')
         },
         footerTabs(e){
           const ftTabBox  = this.$refs['footer-tabs']
@@ -314,8 +332,13 @@
           display flex
           line-height 25px
           .pet-city
-            text-align center
             flex 30%
+            position relative
+            .iconfont
+              font-size 8px
+              position absolute
+              top 2px
+              right 16px
           .search-box
             position relative
             flex 60%
@@ -342,22 +365,19 @@
               font-size 20px
               color #333
         .home-tabs
-          margin-top 10px
-          display flex
-          .tab-item
-            flex 1
-            display flex
-            justify-content center
-            span
-              height 20px
-              color #000000
-              padding-bottom 5px
-              &.current
-                color $green
-                box-shadow 0 -2px 0 $green inset
-
-
-    .content
+          margin 10px 0
+          height 20px
+          .tab-wrapper
+            .tab-item
+              text-align center
+              span
+                width
+                color #000000
+                padding-bottom 12px
+                &.current
+                  color $green
+                  box-shadow 0 -2px 0 $green inset
+  .content
       .category-banner
         width 100%
         .swiper-pagination

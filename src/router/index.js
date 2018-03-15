@@ -3,6 +3,10 @@ import Vue from 'vue'
 
 import Home from '../views/Home/Home'
 import Category from '../views/Category/Category'
+import Brand from '../views/Brand/Brand'
+import Class from '../views/Class/Class'
+import Login from '../views/Login/Login'
+import Cart from '../views/Cart/Cart'
 
 Vue.use(Router)
 
@@ -17,7 +21,29 @@ export default new Router({
     {
       path:'/category',
       component:Category,
+      children:[
+        {
+          path:'',
+          redirect:'class',
+        },
+        {
+          path:'brand',
+          component:Brand
+        },
+        {
+          path:'class',
+          component:Class
+        }
+      ],
       meta:true,
+    },
+    {
+      path:'/login',
+      component:Login
+    },
+    {
+      path:'/cart',
+      component:Cart
     },
     {
       path:'/',

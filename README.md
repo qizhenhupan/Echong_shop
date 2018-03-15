@@ -30,5 +30,12 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 2. 动画： steps(1) (默认end时，跳跃)
 
+#第二天
+ 1.上一个兄弟元素是inline时，可以自由浮动，不会被阻挡
+ 2.flex 50% 可能 被 padding border margin 扩大，从而
+  自动grow充满父容器
+ 3. BScroll 必需要子元素溢出，才能滑动
+ 4. swiper类名有实际意义，比如slidesPerView时，设置宽高
+
 
 

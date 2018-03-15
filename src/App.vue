@@ -13,11 +13,13 @@
       name: "app",
       components:{
         EleFooter
+      },
+      mounted(){
       }
     }
 </script>
 
-<style lang='stylus' rel='stylesheet/stylus'>
+<style lang='stylus' rel='stylesheet/stylus' >
   @import './assets/css/reset.css'
   @import './assets/stylus/public.styl'
 
