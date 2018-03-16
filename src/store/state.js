@@ -2,6 +2,9 @@
 
 
 
-export default {
 
+export default {
+  homePage:{},
+  category:[],
+  brand:[],
 }

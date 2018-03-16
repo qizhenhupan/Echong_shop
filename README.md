@@ -41,5 +41,9 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
  3. BScroll 必需要子元素溢出，才能滑动
  4. swiper类名有实际意义，比如slidesPerView时，设置宽高
 
-
+#第三天
+  完成了首页的数据展现，利用mockjs模拟后台数据获取。
+  完成了首页数据收据过滤。
+  但是，图片尺寸不一，有少许错位。
+  BScroll内部的滑动dom节点不能有marign，会影响滑动距离的计算。
 

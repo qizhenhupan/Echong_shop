@@ -9,19 +9,19 @@
       <div class="footer-item" :class="{current:matchPath('category')}"
            @click="goto('/category')"
       >
-        <i class="iconfont icon-avatar"></i>
+        <i class="iconfont icon-liebiao"></i>
         <span class="text">分类</span>
       </div>
       <div class="footer-item" :class="{current:matchPath('cart')}"
            @click="goto('/cart')"
       >
-        <i class="iconfont icon-avatar"></i>
+        <i class="iconfont icon-cart"></i>
         <span class="text">购物车</span>
       </div>
-      <div class="footer-item" :class="{current:matchPath('profile')}"
+      <div class="footer-item" :class="{current:matchPath('login')}"
            @click="goto('/login')"
       >
-        <i class="iconfont icon-avatar"></i>
+        <i class="iconfont icon-wode1"></i>
         <span class="text">我的E宠</span>
       </div>
     </footer>
@@ -31,10 +31,10 @@
     export default {
       methods:{
           goto(path){
-            this.$router.replace(path)
+            this.$router.push(path)
           },
         matchPath(path){
-            return new RegExp(path).test(this.$route.path)
+            return this.$route.path.indexOf(path)>-1
         }
       }
     }
