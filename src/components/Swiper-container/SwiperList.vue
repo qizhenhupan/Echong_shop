@@ -41,7 +41,8 @@
           new Swiper('.swiper-container'+'.'+newClass,{
             autoplay:true,
             pagination:{
-              el:'.swiper-pagination'
+              el:'.swiper-pagination',
+              clickable:true,
             }
           })
       },

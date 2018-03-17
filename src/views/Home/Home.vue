@@ -2,33 +2,14 @@
 <div class="mainContent" v-if="home.dog_img" :class="{hasAdv:showAdv}">
   <div class="home-content">
     <div class="content">
-      <Split/>
-      <SwiperList newClass="category-banner"
-                  :arr="home.dog_banner"
-                  :hasPagination="true"/>
-      <!--<div class="category-banner swiper-container">-->
-        <!--<div class="swiper-wrapper">-->
-          <!--<div class="swiper-slide" v-for="(item,index) of home.dog_banner" :key="index">-->
-            <!--<img :src="item" >-->
-          <!--</div>-->
-          <!--&lt;!&ndash;<div class="swiper-slide">&ndash;&gt;-->
-            <!--&lt;!&ndash;<img src="./images/zhuliang.jpg" >&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="swiper-slide">&ndash;&gt;-->
-            <!--&lt;!&ndash;<img src="./images/baolu.jpg" >&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="swiper-slide">&ndash;&gt;-->
-            <!--&lt;!&ndash;<img src="./images/fumo.jpg" >&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="swiper-slide">&ndash;&gt;-->
-            <!--&lt;!&ndash;<img src="./images/ouguan.jpg" >&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-          <!--&lt;!&ndash;<div class="swiper-slide">&ndash;&gt;-->
-            <!--&lt;!&ndash;<img src="./images/tongzhi.jpg" >&ndash;&gt;-->
-          <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--</div>-->
-        <!--<div class="swiper-pagination"></div>-->
-      <!--</div>-->
+      <div class="category-banner swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" v-for="(item,index) of home.dog_banner" :key="index">
+            <img :src="item" >
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
       <div class="dog-img" >
         <img  :src="home.dog_img"  style="width:100%" >
       </div>
@@ -37,15 +18,6 @@
           <li v-for="(item,index) of home.menu_list" :key="index">
             <img :src="item"  >
           </li>
-          <!--<li><img src="./images/test.jpg" ></li>-->
-          <!--<li><img src="./images/test.jpg" ></li>-->
-          <!--<li><img src="./images/test.jpg" ></li>-->
-          <!--<li><img src="./images/test.jpg" ></li>-->
-          <!--<li><img src="./images/test.jpg" ></li>-->
-          <!--<li><img src="./images/test.jpg" ></li>-->
-          <!--<li><img src="./images/test.jpg" ></li>-->
-          <!--<li><img src="./images/test.jpg" ></li>-->
-          <!--<li><img src="./images/test.jpg" ></li>-->
         </ul>
       </div>
       <div class="miaosha">
@@ -147,28 +119,27 @@
       <div class="tuangou-list swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(item,index) of home.dapaituan_list" :key="index">
-            <img :src="item" >
+            <img :src="item">
           </div>
-          <!--<div class="swiper-slide">-->
-            <!--<img src="./images/tuangou-goods.jpg" >-->
-          <!--</div>-->
-          <!--<div class="swiper-slide">-->
-            <!--<img src="./images/tuangou-goods.jpg" >-->
-          <!--</div>-->
-          <!--<div class="swiper-slide">-->
-            <!--<img src="./images/tuangou-goods.jpg" >-->
-          <!--</div>-->
         </div>
         <div class="swiper-pagination"></div>
       </div>
       <div class="dapai-hanhuo">
-        <img :src="home.haohuo" alt="">
+        <img :src="home.haohuo" >
       </div>
-      <div class="haohuo-list">
-        <a href="javascript:;" v-for="(item,index) in home.haohuo_list"
-           :key="index" class="haohuo-item">
-          <img :src="item" >
-        </a>
+      <div class="haohuo-box" v-for="(haohuo,Index) of home.haohuo_list" :key="Index">
+        <div class="haohuo-left" >
+          <a href="javascript:;" v-for="(i,index) in haohuo.left"
+             :key="index" class="haohuo-item">
+            <img :src="i" >
+          </a>
+        </div>
+        <div class="haohuo-right" >
+          <a href="javascript:;" v-for="(j,index) in haohuo.right"
+             :key="index" class="haohuo-item">
+            <img :src="j" >
+          </a>
+        </div>
       </div>
       <div class="zuicanjiang">
         <div class="zuicanjiang-img">
@@ -196,9 +167,15 @@
         <div class="title-img">
           <img :src="home.lanmu" >
         </div>
-        <div class="content">
+        <div class="content-left">
           <img class="tese-item" :src="item"
-               v-for="(item,index) of home.lanmu_list"
+               v-for="(item,index) of home.lanmu_list.left"
+               :key="index"
+          >
+        </div>
+        <div class="content-right">
+          <img class="tese-item" :src="item"
+               v-for="(item,index) of home.lanmu_list.right"
                :key="index"
           >
         </div>
@@ -243,20 +220,6 @@
           <div class="tab-item swiper-slide" v-for="(item,index) in home.menus" :key="index">
             <span class="text" :class="{current:index===0}">{{item.menu_name}}</span>
           </div>
-          <!--<div class="tab-item swiper-slide"><span class="text">狗狗主粮</span></div>-->
-          <!--<div class="tab-item swiper-slide"><span class="text">服饰城</span></div>-->
-          <!--<div class="tab-item swiper-slide"><span class="text">医疗保障</span></div>-->
-          <!--<div class="tab-item swiper-slide"><span class="text">零食玩具</span></div>-->
-          <!--<div class="tab-item swiper-slide"><span class="text">首页</span></div>-->
-          <!--<div class="tab-item swiper-slide"><span class="text">狗狗主粮</span></div>-->
-          <!--<div class="tab-item swiper-slide"><span class="text">服饰城</span></div>-->
-          <!--<div class="tab-item swiper-slide"><span class="text">医疗保障</span></div>-->
-          <!--<div class="tab-item swiper-slide"><span class="text">零食玩具</span></div>-->
-          <!--<div class="tab-item swiper-slide"><span class="text">首页</span></div>-->
-          <!--<div class="tab-item swiper-slide"><span class="text">狗狗主粮</span></div>-->
-          <!--<div class="tab-item swiper-slide"><span class="text">服饰城</span></div>-->
-          <!--<div class="tab-item swiper-slide"><span class="text">医疗保障</span></div>-->
-          <!--<div class="tab-item swiper-slide"><span class="text">零食玩具</span></div>-->
         </div>
       </div>
     </header>
@@ -271,6 +234,7 @@
   import Swiper from 'swiper'
   import BScroll from 'better-scroll'
   import {mapActions,mapState} from 'vuex'
+  import {Indicator} from 'mint-ui'
     export default {
       name: "home",
       data(){
@@ -280,9 +244,15 @@
       },
       mounted(){
         this.getHomePage(()=>{
-          this._initScroll()
+          this.$nextTick(()=>{
+            this._initScroll()
+            Indicator.close()
+          })
+        });
+        Indicator.open({
+          text:'数据加载中...',
+          spinnerType:'triple-bounce'
         })
-
       },
       computed:{
         ...mapState({home:'homePage'})
@@ -323,7 +293,10 @@
                clickable:true,
              },
              loop:true,
-             autoplay:true,
+             autoplay:{
+               delay:2500,
+               disableOnInteraction:false,
+             },
            });
            new Swiper('.surprise>.swiper-container',{
              slidesPerView:3.5,
@@ -336,12 +309,15 @@
                el:'.swiper-pagination',
                clickable:true,
              },
-             autoplay:true,
+             autoplay:{
+               delay:2500,
+               disableOnInteraction:false,
+             },
            });
            new Swiper('.home-tabs',{
              slidesPerView:5,
              freeMode:true,
-           })
+           });
           this.bodyScroll =  new BScroll("#app .home-content",{
              click:true,
            })
@@ -490,11 +466,13 @@
               width 20px;
               border-radius 10px
               background $gray
-        .haohuo-list
+        .haohuo-box
           display flex
-          flex-flow wrap
-          .haohuo-item
-            flex 50%
+          .haohuo-left,.haohuo-right
+            flex 1
+            background #000
+            display flex
+            flex-flow column
         .tebiexinqiu
           display flex
           flex-wrap wrap
@@ -509,13 +487,11 @@
               img:last-child
                 margin-top -2px
         .teselanmu
-          .content
-            display flex
-            flex-wrap wrap
-            .tese-item
-              width 50%
-              height 50%
-
+          overflow hidden
+          width 100%
+          .content-left,.content-right
+            float left
+            width 50%
         .content-footer
           padding 20px 20px
           text-align center

@@ -1606,7 +1606,7 @@
     {
       "cateid": "5",
       "name": "狗狗主粮",
-      "cate_list": [
+      "cate_list":[
         {
           "title": "狗狗主粮",
           "rigth_img": {

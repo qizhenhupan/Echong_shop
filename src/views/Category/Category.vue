@@ -14,7 +14,9 @@
       </div>
     </header>
     <div class="category-content">
-      <router-view />
+      <keep-alive>
+        <router-view />
+      </keep-alive>
     </div>
   </div>
 </template>
@@ -33,11 +35,11 @@
   @import '../../assets/stylus/mixins.styl'
   #app
     height 100%
-    box-sizing border-box
-    padding-bottom 50px
   .mainContent
     height 100%
   .category
+    box-sizing border-box
+    padding 0 0 50px 0
     height 100%
     .category-header
       text-align center
@@ -49,10 +51,10 @@
         height 100%
         text-align center
         span
-          display inline-block
-          font-size 16px
-          padding 0 8px
-          margin 0 8px
+          font-size 13px
+          font-weight 600
+          padding 0 8px 10px
+          margin 0 10px
         span.router-link-active
           color red;
           font-weight 500

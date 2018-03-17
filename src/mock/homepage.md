@@ -14,13 +14,15 @@
     dapaituan: url
     dapaituan_list: [ url ]
     haohuo: url,
-    haohuo_list:[ url]
+    haohuo_list:[
+    {left:[url 4个],right:[ url 4个]}
+    ]
     zuican: url,
     zuican_content: url,
     special:url
     special_list: [url]
     lanmu:url,
-    lanmu_list :[url]
+    lanmu_list :{left:[url * 3],right:[url * 3]}
     首页数据结束！
     }
 

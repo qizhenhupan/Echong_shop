@@ -7,6 +7,7 @@ import Brand from '../views/Brand/Brand'
 import Class from '../views/Class/Class'
 import Login from '../views/Login/Login'
 import Cart from '../views/Cart/Cart'
+import AllBrand from '../views/AllBrand/AllBrand'
 
 Vue.use(Router)
 
@@ -44,6 +45,10 @@ export default new Router({
     {
       path:'/cart',
       component:Cart
+    },
+    {
+      path:'/allBrand',
+      component:AllBrand,
     },
     {
       path:'/',

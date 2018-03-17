@@ -1,10 +1,10 @@
 import Mock from 'mockjs'
 import data from './data'
-const {homepage} = data
+const {homepage,categorys,brand} = data;
 const menus = homepage.menus.map((menu)=>{
 const    {menu_name,menu_font_color,menu_line_color,menu_target} = menu
   return  {menu_name,menu_font_color,menu_line_color,menu_target}
-})
+});
 const datas = homepage.datas.map(data=>{
   const {index,type_name,value,content_images,menus} = data
   const obj =  {index,type_name,value,content_images,menus}
@@ -14,9 +14,9 @@ const datas = homepage.datas.map(data=>{
     }
     return final
   },{})
-})
-const f = {}
-f.menus = menus
+});
+const f = {};
+f.menus = menus;
 datas.forEach(data=>{
   switch(data.index){
     case '3132':
@@ -65,9 +65,10 @@ datas.forEach(data=>{
     case '3151':
     case '3153':
       const haohuo_list = f.haohuo_list || [];
-      f.haohuo_list = data.content_images.reduce((f,item)=>{
-        return f.concat(item.map(o=>o.image))
-      },haohuo_list)
+      const left = data.content_images[0].map(i=>i.image)
+      const right = data.content_images[1].map(i=>i.image)
+      haohuo_list.push({left,right})
+      f.haohuo_list = haohuo_list
       break;
     case '3154':
       f.zuican = data.value[0].image;
@@ -89,15 +90,31 @@ datas.forEach(data=>{
       break;
     case '3159':
       const lanmu_list = data.content_images;
-      f.lanmu_list =  lanmu_list.reduce((final,item)=>{
-        return final.concat(item)
-      },[]).map(o=>{return o.image});
+      const l_ = lanmu_list[0].map(i=>i.image)
+      const r_ = lanmu_list[1].map(i=>i.image)
+      f.lanmu_list = {left:l_,right:r_}
       break;
   }
 });
 
-Mock.mock('/homepage',{code:0,data:f})
-Mock.mock('/category',{code:0,data:'category'})
-Mock.mock('/brand',{code:0,data:'brand'})
+const category = categorys.map(c=>{
+  let {name,cate_list} = c;
+ cate_list =  cate_list.map(t=>{
+    const {title,list,type} = t;
+    return {title,list,type}
+  });
+  return {name,cate_list}
+});
+const myBrand = brand.map(b=>{
+  let {title,list} = b
+  list = list.map(l=>{
+    const {name,logo,address} = l
+    return {name,logo,address}
+  })
+  return {title,list}
+});
 
-export default  f
+
+Mock.mock('/homepage',{code:0,data:f});
+Mock.mock('/category',{code:0,data:category});
+Mock.mock('/brand',{code:0,data:myBrand});

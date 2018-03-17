@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view />
+    <keep-alive>
+      <router-view />
+    </keep-alive>
     <ele-footer />
   </div>
 </template>
@@ -27,5 +29,5 @@
       height 100%
       box-sizing border-box
       padding-top 70px
-      padding-bottom 55px
+      padding-bottom 50px
 </style>

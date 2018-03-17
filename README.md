@@ -47,3 +47,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   但是，图片尺寸不一，有少许错位。
   BScroll内部的滑动dom节点不能有marign，会影响滑动距离的计算。
 
+
