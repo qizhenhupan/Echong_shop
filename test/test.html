@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    /*.test{*/
+      /*width:85px;*/
+      /*height:94px;*/
+      /*border:10px solid red;*/
+      /*background: url("godog.png") no-repeat 0 0 ;*/
+    /*}*/
+    .item{
+      width:100px;
+      height:50px;
+      background:lightcoral;
+      margin:50px;
+    }
+    .item.active{
+      background:lightseagreen;
+    }
+  </style>
+</head>
+<body>
+<div class="test">
+  <div class="item active"></div>
+  <div class="item"></div>
+  <div class="item"></div>
+</div>
+<script>
+
+  //dom元素的classList属性  方法  contains add remove
+  var test = document.getElementsByClassName('test')[0];
+  var items = test.children
+  test.addEventListener('click',function(event){
+    var target = event.target
+    //点击自己，直接返回，不做操作
+    if(target.classList.contains('active')){
+      return
+    }
+    //清空所有
+    [].slice.call(items).forEach(function(item){
+      item.classList.remove('active')
+    });
+    //给target添加类名
+    target.classList.add('active');
+  });
+</script>
+</body>
+</html>
