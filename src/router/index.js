@@ -8,6 +8,7 @@ import Class from '../views/Class/Class'
 import Login from '../views/Login/Login'
 import Cart from '../views/Cart/Cart'
 import AllBrand from '../views/AllBrand/AllBrand'
+import DistPicker from '../views/DistPicker/DistPicker'
 
 Vue.use(Router)
 
@@ -17,7 +18,7 @@ export default new Router({
     {
       path:'/home',
       component: Home,
-      meta:true,
+      meta:{showFooter:true}
     },
     {
       path:'/category',
@@ -36,7 +37,7 @@ export default new Router({
           component:Class
         }
       ],
-      meta:true,
+      meta:{showFooter:true}
     },
     {
       path:'/login',
@@ -49,6 +50,10 @@ export default new Router({
     {
       path:'/allBrand',
       component:AllBrand,
+    },
+    {
+      path:'/distPick',
+      component:DistPicker
     },
     {
       path:'/',

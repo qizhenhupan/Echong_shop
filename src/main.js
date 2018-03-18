@@ -9,6 +9,7 @@ import SwiperList from './components/Swiper-container/SwiperList'
 import VueLazyLoad from 'vue-lazyload'
 import Gif from './loading.gif'
 import Header from './components/EleHeader/EleHeader'
+import DPicker from 'v-distpicker'
 
 
 //引入mock
@@ -17,6 +18,7 @@ import data from  './mock'
 Vue.config.productionTip  = false
 Vue.component('Split',Split)
 Vue.component('EleHeader',Header)
+Vue.component('DistPicker',DPicker)
 Vue.component('SwiperList',SwiperList)
 
 /* eslint-disable no-new */

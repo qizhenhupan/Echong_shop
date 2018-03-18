@@ -76,3 +76,35 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
            maxScrollX
            maxScrollY
 
+   ###
+        第五天：
+         使用了mint-ul Indicator.open close 在数据未到达之前，显示提示框
+
+         使用了v-distpicker 组件，
+          默认暴露一个vue组件：
+          1. 属性
+            province
+            city
+            area
+            hide-area
+            only-province
+            placehodlers:{
+                  province:'ss',
+                  city:'ccc',
+                  area:'ss'
+                  }
+            @selected事件
+              会默认传参，{
+                        province:{},
+                        city:{},
+                        area:{},
+                        }
+              在选择完最后一项时触发！包含地址信息！
+
+          复习了oninput onchange事件！
+            1. input 实时触发，input,textarea!
+            2. change 失去焦点出发，input, textarea,select!
+
+            !!select的唯一事件！！
+
+

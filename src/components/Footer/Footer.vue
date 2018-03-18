@@ -1,5 +1,5 @@
 <template>
-    <footer class="home-footer" v-if="$route.meta">
+    <footer class="home-footer" v-if="$route.meta.showFooter">
       <div class="footer-item" :class="{current:matchPath('home')}"
            @click="goto('/home')"
       >
@@ -29,6 +29,9 @@
 
 <script>
     export default {
+      mounted(){
+        console.log(this.$route)
+      },
       methods:{
           goto(path){
             this.$router.push(path)

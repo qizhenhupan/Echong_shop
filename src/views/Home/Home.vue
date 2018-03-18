@@ -201,7 +201,7 @@
     </div>
     <header class="home-header">
       <div class="home-search">
-        <div class="pet-city">
+        <div class="pet-city" @click="$router.push('/distpick')">
           <span>狗狗</span>
           &#124;
           <span>重庆</span>
