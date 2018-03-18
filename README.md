@@ -47,4 +47,32 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   但是，图片尺寸不一，有少许错位。
   BScroll内部的滑动dom节点不能有marign，会影响滑动距离的计算。
 
+#第四天
+  完成分类页的点击联动。
+  主要思路是，将点击的那一项移动到第二项位置。利用better-scroll的
+  scrollBy(x,y,time)方法。
+
+  完成汉字首字母的映射，
+  主要思路是，将汉字的Unicode码影射为拼音，然后获取拼音首字母！
+
+  再次学习了左右滑动的联动，
+    主要思路是使用scrollY计算currentIndex,
+    每次滑动时，动态计算滑动的scrollY,然后计算属性动态计算currnetIndex，点亮右侧的字母表。
+    点击右侧字母表时，根据记录的height距离得出应该的scrollY,scrollTo==scrollY
+    ###
+      需要监听左侧的滑动事件，动态记录scrollY,
+      也需要监听右侧的点击事件，根据height,得出相应的scrollY,
+      最后scrollTo(0,scrollY)
+      currentIndex = scrollY的相应状态！
+
+    ###
+       BScroll 简单使用
+       1. 选项
+          scrollX, scrollY,click, probeType
+       2. 事件
+           on 'scroll' 'scrollEnd'
+       3. 属性
+           x,y (已滚动的距离）
+           maxScrollX
+           maxScrollY
 
